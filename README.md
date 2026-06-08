@@ -1,20 +1,56 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Income Tax Calculator 💰
 
-# Run and deploy your AI Studio app
+A simple and user-friendly web application that helps users calculate their income tax quickly and accurately based on their annual income.
 
-This contains everything you need to run your app locally.
+## 🚀 Features
 
-View your app in AI Studio: https://ai.studio/apps/0938261b-6a26-4368-8b87-965994725320
+* Instant tax calculation
+* Easy-to-use interface
+* Supports latest tax slabs
+* Real-time results
+* Mobile responsive design
+* Fast and lightweight
 
-## Run Locally
+## 🛠️ Tech Stack
 
-**Prerequisites:**  Node.js
+* HTML
+* CSS
+* JavaScript
+* Bootstrap
 
+## 📊 How It Works
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. Enter your annual income.
+2. Select the applicable tax regime.
+3. Click **Calculate Tax**.
+4. View your estimated tax instantly.
+
+## 🎯 Purpose
+
+The Income Tax Calculator simplifies tax estimation and helps individuals understand their tax liability without complex calculations.
+
+## 📸 Preview
+
+Add screenshots of your project here.
+
+## 🌐 Live Demo
+
+Add your deployed website link here.
+
+## 🔮 Future Enhancements
+
+* Tax-saving suggestions
+* PDF report generation
+* Salary breakdown analysis
+* Comparison between old and new tax regimes
+* AI-powered financial insights
+
+## 👨‍💻 Author
+
+**Pranav Ayush**
+
+Engineering Student | Web Developer
+
+## 📄 License
+
+This project is licensed under the MIT License.
