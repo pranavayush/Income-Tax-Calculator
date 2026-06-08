@@ -1,20 +1,66 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Income Tax Calculator
 
-# Run and deploy your AI Studio app
+A modern web-based Income Tax Calculator designed to help users estimate their income tax liability under the latest Indian tax regulations.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/0938261b-6a26-4368-8b87-965994725320
+* Income Tax Calculation
+* Old vs New Tax Regime Comparison
+* Deduction Management
+* Form 16 Data Support
+* Real-Time Tax Estimation
+* Responsive and User-Friendly Interface
+* Detailed Tax Summary
+* Export Results Functionality
 
-## Run Locally
+## Tech Stack
 
-**Prerequisites:**  Node.js
+* React
+* TypeScript
+* HTML5
+* CSS3
+* Vite
 
+## Installation
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+git clone https://github.com/pranavayush/Income-Tax-Calculator.git
+cd Income-Tax-Calculator
+npm install
+npm run dev
+```
+
+## Usage
+
+1. Enter personal and income details.
+2. Add eligible deductions.
+3. Compare tax under Old and New Regimes.
+4. View detailed tax breakdown.
+5. Export or save tax results.
+
+## Project Structure
+
+```text
+src/
+├── components/
+├── context/
+├── lib/
+├── App.tsx
+├── main.tsx
+└── index.css
+```
+
+## Future Enhancements
+
+* AI-powered tax suggestions
+* PDF report generation
+* Direct ITR filing assistance
+* Tax-saving investment recommendations
+
+## Author
+
+Pranav Ayush
+
+## License
+
+This project is for educational and portfolio purposes.
