@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useTax } from '../context/TaxContext';
 import { Field, SelectField } from './ui/Field';
 import { extractForm16Data } from '../lib/pdfParser';
-import { FileText, ClipboardList, FolderOpen, CheckCircle, AlertTriangle, Building, Scale, Zap } from 'lucide-react';
+import { FileText, ClipboardList, FolderOpen, CheckCircle, AlertTriangle, Building, Scale, Zap, User, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export const Step1Profile = () => {
@@ -44,7 +44,7 @@ export const Step1Profile = () => {
 
   return (
     <div id="s1">
-      <div className="card">
+      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="card">
         <div className="card-title">
           <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><FileText size={18} /> Form 16 Upload — Auto-Fill Details</span>
           <span style={{ fontSize: '11px', color: 'var(--text3)', textTransform: 'none', fontWeight: 400 }}>Upload PDF for extraction</span>
@@ -80,10 +80,12 @@ export const Step1Profile = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
+      </motion.div>
 
-      <div className="card">
-        <div className="card-title">Step 1 of 4 — Taxpayer Profile</div>
+      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="card">
+        <div className="card-title">
+             <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><User size={18} /> Step 1 of 4 — Taxpayer Profile</span>
+        </div>
         <div className="g3" style={{ marginBottom: '12px' }}>
           <Field label="Full Name" name="tName" type="text" placeholder="e.g. Name of Assessee" />
           <Field label="PAN" name="tPAN" type="text" placeholder="ABCDE1234F" maxLength={10} onInputTransform={v => v.toUpperCase()} />
@@ -136,9 +138,9 @@ export const Step1Profile = () => {
         <div className="alert info">AY {values.tAY}: New Regime std. deduction Rs.{values.tAY === '2026-27' ? '75,000' : '50,000'} | 87A rebate up to Rs.{values.tAY === '2026-27' ? '60,000' : '25,000'}</div>
 
         <div className="btn-row">
-          <button className="btn-primary" onClick={() => setStep(2)}>Next: Income Details →</button>
+          <button className="btn-primary" onClick={() => setStep(2)}>Next: Income Details <ArrowRight size={16} /></button>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

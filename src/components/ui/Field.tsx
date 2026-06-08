@@ -1,5 +1,7 @@
 import React from 'react';
 import { useTax } from '../../context/TaxContext';
+import { motion } from 'motion/react';
+import { IndianRupee } from 'lucide-react';
 
 interface FieldProps {
   label: string;
@@ -29,19 +31,27 @@ export const Field: React.FC<FieldProps> = ({
   return (
     <div className={`field ${className}`}>
       <label>{label}</label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        placeholder={placeholder}
-        min={min}
-        max={max}
-        maxLength={maxLength}
-        value={values[name] !== undefined ? values[name] : (type === 'number' ? '' : '')}
-        onChange={onChange}
-        readOnly={readOnly}
-        style={readOnly ? { background: 'var(--bg2)' } : {}}
-      />
+      <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+        {type === 'number' && (
+           <IndianRupee size={14} style={{ position: 'absolute', left: '12px', color: 'var(--text4)' }} />
+        )}
+        <input
+          id={name}
+          name={name}
+          type={type}
+          placeholder={placeholder}
+          min={min}
+          max={max}
+          maxLength={maxLength}
+          value={values[name] !== undefined ? values[name] : (type === 'number' ? '' : '')}
+          onChange={onChange}
+          readOnly={readOnly}
+          style={{
+            ...readOnly ? { background: 'var(--bg2)' } : {},
+            ...(type === 'number' ? { paddingLeft: '32px' } : {})
+          }}
+        />
+      </div>
       {hint && <div className="hint">{hint}</div>}
     </div>
   );

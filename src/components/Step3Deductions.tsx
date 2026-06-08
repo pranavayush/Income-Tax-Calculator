@@ -3,6 +3,8 @@ import { useTax } from '../context/TaxContext';
 import { Field } from './ui/Field';
 import { inr } from '../lib/taxCalculator';
 import { Accordion } from './ui/Accordion';
+import { motion } from 'motion/react';
+import { ArrowLeft, Zap, ShieldCheck, PiggyBank, HeartPulse, GraduationCap, HeartHandshake, Landmark } from 'lucide-react';
 
 export const Step3Deductions = () => {
     const { results, setStep, values } = useTax();
@@ -11,7 +13,7 @@ export const Step3Deductions = () => {
 
     return (
         <div id="s3">
-            <div className="card">
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="card">
                 <div className="card-title">
                     <span>Step 3 of 4 — Deductions (Chapter VI-A)</span>
                     <span style={{ fontSize: '11px', color: 'var(--text3)', fontWeight: 400, textTransform: 'none' }}>Old Regime: All apply. New: Only 80CCD(2)</span>
@@ -19,7 +21,7 @@ export const Step3Deductions = () => {
 
                 <Accordion 
                     defaultOpen 
-                    title="📦 80C Group — Investments (Max Rs.1,50,000)" 
+                    title={<span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><ShieldCheck size={18} /> 80C Group — Investments (Max Rs.1,50,000)</span>} 
                     badge={<span className={`acc-badge ${d80C > 0 ? 'claimed' : 'unclaimed'}`}>₹{inr(d80C)} / ₹1,50,000</span>}
                 >
                     <div className="g3" style={{ marginBottom: '8px' }}>
@@ -39,7 +41,7 @@ export const Step3Deductions = () => {
                 </Accordion>
 
                 <Accordion 
-                    title="🏦 NPS — National Pension System" 
+                    title={<span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><PiggyBank size={18} /> NPS — National Pension System</span>} 
                     badge={<span className={`acc-badge unclaimed`}>₹{inr((values.d1B||0) + (values.d2||0))}</span>}
                 >
                     <div className="g3" style={{ marginBottom: '8px' }}>
@@ -48,7 +50,7 @@ export const Step3Deductions = () => {
                     </div>
                 </Accordion>
 
-                <Accordion title="🏥 80D — Health Insurance & Medical">
+                <Accordion title={<span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><HeartPulse size={18} /> 80D — Health Insurance & Medical</span>}>
                     <div className="g3" style={{ marginBottom: '8px' }}>
                         <Field label="Self/Spouse/Children Premium" name="d80D_self" />
                         <Field label="Parents Premium" name="d80D_par" />
@@ -56,7 +58,7 @@ export const Step3Deductions = () => {
                     </div>
                 </Accordion>
 
-                <Accordion title="🏠 Housing & Education Loans (24b, 80EE/A, 80E)">
+                <Accordion title={<span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><GraduationCap size={18} /> Housing & Education Loans (24b, 80EE/A, 80E)</span>}>
                     <div className="g3">
                         <Field label="80EE — First Home Addl." name="d80EE" />
                         <Field label="80EEA — Affordable Housing" name="d80EEA" />
@@ -64,7 +66,7 @@ export const Step3Deductions = () => {
                     </div>
                 </Accordion>
 
-                <Accordion title="🙏 80G — Donations & Relief Funds">
+                <Accordion title={<span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><HeartHandshake size={18} /> 80G — Donations & Relief Funds</span>}>
                     <div className="g3">
                         <Field label="80G — 100% Deduction" name="d80G100" />
                         <Field label="80G — 50% Deduction" name="d80G50" />
@@ -72,22 +74,22 @@ export const Step3Deductions = () => {
                     </div>
                 </Accordion>
 
-                <Accordion title="💰 80TTA/TTB — Savings/FD Interest">
+                <Accordion title={<span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Landmark size={18} /> 80TTA/TTB — Savings/FD Interest</span>}>
                     <div className="g2">
-                        <Field label="80TTA — Savings Interest (Below 60)" name="d80TTA" />
+                        <Field label="80TTA — Savings Interest (<60 yrs)" name="d80TTA" />
                         <Field label="80TTB — Deposits Interest (Senior 60+)" name="d80TTB" />
                     </div>
                 </Accordion>
 
                 {isNew && (
-                    <div className="alert warn">Many of the entered deductions above will automatically be ignored under the New Regime selection.</div>
+                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} className="alert warn">Many of the entered deductions above will automatically be ignored under the New Regime selection.</motion.div>
                 )}
 
                 <div className="btn-row">
-                    <button className="btn-secondary" onClick={() => setStep(2)}>← Back</button>
-                    <button className="btn-green" onClick={() => setStep(4)}>⚡ Calculate Tax </button>
+                    <button className="btn-secondary" onClick={() => setStep(2)}><ArrowLeft size={16} /> Back</button>
+                    <button className="btn-green" onClick={() => setStep(4)}><Zap size={16} /> Calculate Tax </button>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 };
